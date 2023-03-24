@@ -41,7 +41,7 @@ function extractId(targetNode, baseClass) {
 
 function showTarget(targets, targetId) {
 	targets.forEach(function (targetNode, targetIndex) {
-    var currentTargetNodeId = extractId(targetNode, TARGET_CLASS_NAME)
+		var currentTargetNodeId = extractId(targetNode, TARGET_CLASS_NAME)
 		if (currentTargetNodeId === targetId) {
 			targetNode.classList.remove(HIDDEN_CLASS_NAME)
 		} else {
@@ -52,5 +52,69 @@ function showTarget(targets, targetId) {
 
 main()
 
+
+const navbar = document.getElementsByClassName("fa-bars")[0];
+const overlaymenu = document.querySelector(".overlay");
+const closex = document.querySelector(".fa-xmark");
+
+navbar.addEventListener("click", openOverlay);
+closex.addEventListener("click", closeeOverlay);
+
+function openOverlay() {
+	overlaymenu.classList.add("active");
+
+}
+
+function closeeOverlay() {
+	overlaymenu.classList.remove("active");
+
+}
+
+
+const booktable = document.getElementsByClassName("booktable")[0];
+const submit = document.querySelector(".submit");
+const close = document.querySelector(".closing");
+
+booktable.addEventListener("click", openPopup);
+close.addEventListener("click", closePopup);
+
+function openPopup() {
+	submit.classList.add("reg-sub");
+
+}
+
+function closePopup() {
+	submit.classList.remove("reg-sub");
+}
+
+
+function checkParams() {
+	var name = $('#name').val();
+	var tel = $('#tel').val();
+	var date = $('#date').val();
+	var time = $('#time').val();
+	var textarea = $('#textarea').val();
+
+	if (name.length != 0 && tel.length != 0 && date.length != 0 && time.length != 0 && textarea.length != 0) {
+		$('#submit').removeAttr('disabled');
+	} else {
+		$('#submit').attr('disabled', 'disabled');
+	}
+}
+
+
+AOS.init();
+
+
+
+$("header nav a").on("click", function (e) {
+
+	e.preventDefault();
+	
+	const href = $(this).attr("href");
+	
+	$("html, body").animate({ scrollTop: $(href).offset().top }, 1000);
+
+})
 
 
