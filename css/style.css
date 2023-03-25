@@ -331,11 +331,6 @@ html {
 .links button {
     color: white;
 }
-
-/* .links a:nth-child(1) {
-    color: #E8BE7F;
-} */
-
 .ourmenulink {
     padding-top: 100px;
 
@@ -571,6 +566,7 @@ input {
 select {
     font-size: 20px;
     text-align: center;
+    outline: none;
 }
 
 textarea {
